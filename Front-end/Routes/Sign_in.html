@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Sign In | Campus Calendar</title>
-
-    <link rel="stylesheet" href="../Style/Sign_in.css">
-</head>
-<body>
 <header class="page-header">
   <button
     class="back-button"
     type="button"
     aria-label="Go back"
     onclick="history.back()"
-  >
-    &#8592;
-  </button>
+  >←</button>
 
-  <a class="brand" href="../index.html">
-    Campus Calendar
-  </a>
+  <span class="brand">Campus Calendar</span>
 </header>
 
-<section class="signin-content">
-  <h1>Sign In</h1>
+<section aria-labelledby="signin-title">
+  <h1 id="signin-title">Welcome back</h1>
 
   <form id="signin-form">
 
@@ -45,7 +30,7 @@
     <div class="form-group">
       <label for="password">Password</label>
 
-      <div class="password-field">
+      <div class="password-box">
         <input
           type="password"
           id="password"
@@ -56,9 +41,9 @@
         >
 
         <button
+          class="eye-button"
+          id="toggle-password"
           type="button"
-          class="password-toggle"
-          id="password-toggle"
           aria-label="Show password"
           aria-controls="password"
           aria-pressed="false"
@@ -80,7 +65,7 @@
     </div>
 
     <div class="form-options">
-      <label class="remember-me" for="remember">
+      <label class="remember-label" for="remember">
         <input
           type="checkbox"
           id="remember"
@@ -90,16 +75,14 @@
         <span>Remember me</span>
       </label>
 
-      <a href="forgot-password.html">
-        Forgot password?
-      </a>
+      <a href="forgot-password.html">Forgot password?</a>
     </div>
 
     <button class="signin-button" type="submit">
       Sign in
     </button>
 
-    <p id="form-message" role="status"></p>
+    <p class="form-message" id="form-message" role="status"></p>
   </form>
 
   <p class="signup-text">
@@ -107,5 +90,3 @@
     <a href="create-account.html">Create account</a>
   </p>
 </section>
-</body>
-</html>
