@@ -1,3 +1,98 @@
-body {
-    background-color: lightblue;
-}
+<header class="page-header">
+  <button
+    class="back-button"
+    type="button"
+    aria-label="Go back"
+    onclick="history.back()"
+  >
+    &#8592;
+  </button>
+
+  <a class="brand" href="../index.html">
+    Campus Calendar
+  </a>
+</header>
+
+<section class="signin-content">
+  <h1>Welcome back</h1>
+
+  <form id="signin-form">
+
+    <div class="form-group">
+      <label for="email">Email</label>
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@university.edu"
+        autocomplete="username"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+
+      <div class="password-field">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button
+          type="button"
+          class="password-toggle"
+          id="password-toggle"
+          aria-label="Show password"
+          aria-controls="password"
+          aria-pressed="false"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+            />
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-options">
+      <label class="remember-me" for="remember">
+        <input
+          type="checkbox"
+          id="remember"
+          name="remember"
+          checked
+        >
+        <span>Remember me</span>
+      </label>
+
+      <a href="forgot-password.html">
+        Forgot password?
+      </a>
+    </div>
+
+    <button class="signin-button" type="submit">
+      Sign in
+    </button>
+
+    <p id="form-message" role="status"></p>
+  </form>
+
+  <p class="signup-text">
+    Don't have an account?
+    <a href="create-account.html">Create account</a>
+  </p>
+</section>
