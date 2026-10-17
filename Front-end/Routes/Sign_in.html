@@ -1,126 +1,139 @@
-<header class="page-header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Campus Calendar</title>
+    <link rel="stylesheet" href="../Style/Sign_in.css">
+</head>
+<body>
 
-  <button
-    class="back-button"
-    type="button"
-    aria-label="Go back"
-    onclick="history.back()"
-  >
-    ←
-  </button>
-
-  <span class="brand">Campus Calendar</span>
-
-</header>
-
-<section aria-labelledby="signin-title">
-
-  <h1 id="signin-title">Sign in</h1>
-
-  <form id="signin-form">
-
-    <div class="form-group">
-
-      <label for="email">Email</label>
-
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="you@learnistan.ai"
-        autocomplete="username"
-        required
-      >
-
-    </div>
-
-    <div class="form-group">
-
-      <label for="password">Password</label>
-
-      <div class="password-box">
-
+  <header class="page-header">
+  
+    <button
+      class="back-button"
+      type="button"
+      aria-label="Go back"
+      onclick="history.back()"
+    >
+      ←
+    </button>
+  
+    <span class="brand">Campus Calendar</span>
+  
+  </header>
+  
+  <section aria-labelledby="signin-title">
+  
+    <h1 id="signin-title">Sign in</h1>
+  
+    <form id="signin-form">
+  
+      <div class="form-group">
+  
+        <label for="email">Email</label>
+  
         <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
-          autocomplete="current-password"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@learnistan.ai"
+          autocomplete="username"
           required
         >
-
-        <button
-          class="eye-button"
-          type="button"
-          aria-label="Show password"
-          aria-controls="password"
-          aria-pressed="false"
-          onclick="
-            const input = document.getElementById('password');
-            const show = input.type === 'password';
-            input.type = show ? 'text' : 'password';
-            this.setAttribute('aria-pressed', String(show));
-            this.setAttribute(
-              'aria-label',
-              show ? 'Hide password' : 'Show password'
-            );
-          "
-        >
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            aria-hidden="true"
-          >
-            <path
-              d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
-            />
-            <circle cx="12" cy="12" r="3"/>
-          </svg>
-
-        </button>
-
+  
       </div>
-
-    </div>
-
-    <div class="form-options">
-
-      <label class="remember-label" for="remember">
-
-        <input
-          type="checkbox"
-          id="remember"
-          name="remember"
-          checked
-        >
-
-        <span>Remember me</span>
-
-      </label>
-
-      <a href="forgot-password.html">
-        Forgot password?
+  
+      <div class="form-group">
+  
+        <label for="password">Password</label>
+  
+        <div class="password-box">
+  
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+  
+          <button
+            class="eye-button"
+            type="button"
+            aria-label="Show password"
+            aria-controls="password"
+            aria-pressed="false"
+            onclick="
+              const input = document.getElementById('password');
+              const show = input.type === 'password';
+              input.type = show ? 'text' : 'password';
+              this.setAttribute('aria-pressed', String(show));
+              this.setAttribute(
+                'aria-label',
+                show ? 'Hide password' : 'Show password'
+              );
+            "
+          >
+  
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+              />
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+  
+          </button>
+  
+        </div>
+  
+      </div>
+  
+      <div class="form-options">
+  
+        <label class="remember-label" for="remember">
+  
+          <input
+            type="checkbox"
+            id="remember"
+            name="remember"
+            checked
+          >
+  
+          <span>Remember me</span>
+  
+        </label>
+  
+        <a href="forgot-password.html">
+          Forgot password?
+        </a>
+  
+      </div>
+  
+      <button class="signin-button" type="submit">
+        Sign in
+      </button>
+  
+    </form>
+  
+    <p class="signup-text">
+  
+      Don't have an account?
+  
+      <a href="create-account.html">
+        Create account
       </a>
-
-    </div>
-
-    <button class="signin-button" type="submit">
-      Sign in
-    </button>
-
-  </form>
-
-  <p class="signup-text">
-
-    Don't have an account?
-
-    <a href="create-account.html">
-      Create account
-    </a>
-
-  </p>
-
-</section>
+  
+    </p>
+  
+  </section>
+  
+</body>
+</html>
