@@ -1,0 +1,812 @@
+/* =====================================
+   Campus Calendar - Registration Page
+   ===================================== */
+
+:root {
+    --primary: #0788e8;
+    --primary-hover: #006fc8;
+
+    --navy: #17266f;
+    --light-blue: #58abe9;
+
+    --page-background: #f0f7fc;
+    --white: #ffffff;
+
+    --text-primary: #111111;
+    --text-secondary: #666666;
+
+    --border: #c9cdd1;
+    --error: #dc3545;
+    --success: #16834a;
+
+    --shadow: 0 2px 8px rgba(20, 45, 75, 0.05);
+}
+
+
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text-primary);
+
+    background: var(--page-background);
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =====================================
+   Header
+   ===================================== */
+
+.header {
+    width: 100%;
+    min-height: 112px;
+
+    padding: 12px 4.5%;
+
+    background: var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    border-bottom: 1px solid #e6edf2;
+}
+
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+}
+
+
+.brand-logo {
+    display: block;
+
+    width: 300px;
+    max-width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* Fallback logo if image is missing */
+
+.fallback-logo {
+    display: none;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--navy);
+}
+
+
+.logo-icon {
+    font-size: 40px;
+    font-weight: 800;
+
+    letter-spacing: -5px;
+
+    color: var(--primary);
+}
+
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 25px;
+    line-height: 1.05;
+}
+
+
+.logo-text strong:last-child {
+    color: var(--light-blue);
+}
+
+
+.header-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 48px;
+}
+
+
+.sign-in-link {
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+}
+
+
+.sign-in-link:hover {
+    color: var(--primary);
+}
+
+
+.create-account-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 54px;
+
+    padding: 0 30px;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.create-account-link:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================
+   Main
+   ===================================== */
+
+.main-container {
+    width: 100%;
+
+    flex: 1;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 16px 20px 48px;
+}
+
+
+.register-card {
+    width: 100%;
+    max-width: 895px;
+
+    padding: 30px 72px 38px;
+
+    background: var(--white);
+
+    border: 1px solid #d7dfe5;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =====================================
+   Heading
+   ===================================== */
+
+.form-heading {
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+.form-heading h1 {
+    margin-bottom: 8px;
+
+    color: #080808;
+
+    font-size: 42px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.form-heading p {
+    color: #414141;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================
+   Form
+   ===================================== */
+
+#registerForm {
+    width: 100%;
+}
+
+
+.form-group {
+    width: 100%;
+
+    margin-bottom: 22px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+.input-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-wrapper input {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 18px;
+
+    border: 1.5px solid #aeb3b8;
+
+    border-radius: 7px;
+
+    background: var(--white);
+
+    color: #222222;
+
+    font-family: inherit;
+    font-size: 19px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+    color: #999999;
+
+    opacity: 1;
+}
+
+
+.input-wrapper input:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(7, 136, 232, 0.12);
+}
+
+
+.input-wrapper input.invalid {
+    border-color: var(--error);
+}
+
+
+.input-wrapper input.valid {
+    border-color: var(--success);
+}
+
+
+/* Password toggle */
+
+.password-toggle {
+    position: absolute;
+
+    right: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+
+    color: #777777;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+}
+
+
+.password-toggle:hover {
+    color: var(--primary);
+
+    background: #f2f8fd;
+}
+
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+
+    outline-offset: 2px;
+}
+
+
+.password-toggle svg {
+    width: 25px;
+    height: 25px;
+}
+
+
+.input-wrapper:has(.password-toggle) input {
+    padding-right: 60px;
+}
+
+
+/* =====================================
+   Messages
+   ===================================== */
+
+.error-message {
+    display: block;
+
+    min-height: 0;
+
+    margin-top: 5px;
+
+    color: var(--error);
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+.error-message:empty {
+    display: none;
+}
+
+
+.form-message {
+    display: none;
+
+    margin: 0 0 16px;
+
+    padding: 12px 14px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+.form-message.error {
+    display: block;
+
+    color: #a8202e;
+
+    background: #fff0f1;
+
+    border: 1px solid #f3c5ca;
+}
+
+
+.form-message.success {
+    display: block;
+
+    color: #146c3b;
+
+    background: #eaf8ef;
+
+    border: 1px solid #bce7ca;
+}
+
+
+/* =====================================
+   Submit Button
+   ===================================== */
+
+.submit-button {
+    width: 100%;
+    min-height: 57px;
+
+    margin-top: 0;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--light-blue);
+
+    color: var(--white);
+
+    font-family: inherit;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.submit-button:hover {
+    background: var(--primary);
+
+    transform: translateY(-1px);
+}
+
+
+.submit-button:focus-visible {
+    outline: 3px solid rgba(7, 136, 232, 0.35);
+
+    outline-offset: 3px;
+}
+
+
+.submit-button:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =====================================
+   Footer
+   ===================================== */
+
+.form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    text-align: center;
+
+    font-size: 18px;
+}
+
+
+.form-footer span {
+    color: #929292;
+}
+
+
+.form-footer a {
+    color: #0876b9;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.form-footer a:hover {
+    color: var(--primary-hover);
+
+    text-decoration: underline;
+}
+
+
+/* =====================================
+   Tablet
+   ===================================== */
+
+@media (max-width: 900px) {
+
+    .header {
+        min-height: 90px;
+
+        padding: 12px 24px;
+    }
+
+
+    .brand-logo {
+        width: 230px;
+    }
+
+
+    .header-actions {
+        gap: 22px;
+    }
+
+
+    .sign-in-link {
+        font-size: 17px;
+    }
+
+
+    .create-account-link {
+        min-height: 46px;
+
+        padding: 0 18px;
+
+        font-size: 16px;
+    }
+
+
+    .register-card {
+        max-width: 720px;
+
+        padding: 30px 45px 36px;
+    }
+
+
+    .form-heading h1 {
+        font-size: 36px;
+    }
+
+
+    .form-group label {
+        font-size: 21px;
+    }
+}
+
+
+/* =====================================
+   Mobile
+   ===================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        min-height: 76px;
+
+        padding: 12px 16px;
+
+        gap: 10px;
+    }
+
+
+    .brand {
+        min-width: 0;
+    }
+
+
+    .brand-logo {
+        width: 145px;
+    }
+
+
+    .fallback-logo {
+        gap: 6px;
+    }
+
+
+    .logo-icon {
+        font-size: 27px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .logo-text {
+        font-size: 15px;
+    }
+
+
+    .header-actions {
+        gap: 12px;
+    }
+
+
+    .sign-in-link {
+        font-size: 14px;
+    }
+
+
+    .create-account-link {
+        min-height: 38px;
+
+        padding: 0 11px;
+
+        border-radius: 6px;
+
+        font-size: 12px;
+    }
+
+
+    .main-container {
+        padding: 18px 12px 30px;
+    }
+
+
+    .register-card {
+        max-width: 100%;
+
+        padding: 27px 20px 28px;
+    }
+
+
+    .form-heading {
+        margin-bottom: 25px;
+    }
+
+
+    .form-heading h1 {
+        font-size: 28px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .form-heading p {
+        font-size: 15px;
+    }
+
+
+    .desktop-break {
+        display: none;
+    }
+
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+
+    .form-group label {
+        margin-bottom: 9px;
+
+        font-size: 17px;
+    }
+
+
+    .input-wrapper input {
+        height: 47px;
+
+        padding: 0 13px;
+
+        font-size: 16px;
+    }
+
+
+    .input-wrapper:has(.password-toggle) input {
+        padding-right: 52px;
+    }
+
+
+    .password-toggle {
+        right: 7px;
+
+        width: 35px;
+        height: 35px;
+    }
+
+
+    .password-toggle svg {
+        width: 22px;
+        height: 22px;
+    }
+
+
+    .submit-button {
+        min-height: 49px;
+
+        font-size: 18px;
+    }
+
+
+    .form-footer {
+        gap: 8px;
+
+        margin-top: 22px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* =====================================
+   Small Mobile
+   ===================================== */
+
+@media (max-width: 360px) {
+
+    .header {
+        padding: 10px;
+    }
+
+
+    .brand-logo {
+        width: 112px;
+    }
+
+
+    .header-actions {
+        gap: 8px;
+    }
+
+
+    .sign-in-link {
+        font-size: 12px;
+    }
+
+
+    .create-account-link {
+        padding: 0 8px;
+
+        font-size: 11px;
+    }
+
+
+    .register-card {
+        padding: 24px 15px;
+    }
+
+
+    .form-heading h1 {
+        font-size: 25px;
+    }
+
+}
