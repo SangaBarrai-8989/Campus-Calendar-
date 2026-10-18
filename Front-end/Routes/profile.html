@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | TechSpace Campus</title>
+
+    <link rel="stylesheet" href="Styles/profile.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="TechSpace Logo">
+            <div>
+                <h2>TechSpace</h2>
+                <span>Campus Calendar</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-title">MAIN MENU</p>
+
+            <a href="dashboard.html" class="nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="calendar.html" class="nav-link">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Calendar</span>
+            </a>
+
+            <a href="events.html" class="nav-link">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>All Events</span>
+            </a>
+
+            <a href="my-events.html" class="nav-link">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>My Events</span>
+            </a>
+
+            <a href="notifications.html" class="nav-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+            </a>
+
+            <p class="nav-title">ACCOUNT</p>
+
+            <a href="profile.html" class="nav-link active">
+                <i class="fa-solid fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="help.html" class="nav-link">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Help & Support</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h4>Your Campus Community</h4>
+            <p>Connect with students and discover new opportunities.</p>
+            <a href="events.html">Explore Events</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>Pages</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>My Profile</strong>
+            </div>
+
+            <div class="topbar-actions">
+                <a href="notifications.html" class="icon-button"
+                   aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </a>
+
+                <a href="profile.html" class="topbar-profile">
+                    <div class="small-avatar" id="topAvatar">S</div>
+                    <div class="profile-info">
+                        <strong id="topUserName">Student</strong>
+                        <span>Campus Member</span>
+                    </div>
+                </a>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <span class="eyebrow">ACCOUNT MANAGEMENT</span>
+                <h1>My Profile</h1>
+                <p>Manage your personal information and campus profile.</p>
+            </div>
+
+            <button class="primary-button" id="editProfileButton">
+                <i class="fa-solid fa-pen"></i>
+                Edit Profile
+            </button>
+        </section>
+
+        <section class="profile-hero">
+            <div class="hero-background"></div>
+
+            <div class="hero-content">
+                <div class="avatar-wrapper">
+                    <div class="large-avatar" id="profileAvatar">S</div>
+                    <span class="online-indicator"></span>
+                </div>
+
+                <div class="hero-user-info">
+                    <h2 id="heroName">Student Name</h2>
+                    <p id="heroDepartment">Department not set</p>
+                    <div class="member-badge">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Campus Member
+                    </div>
+                </div>
+
+                <div class="hero-member-info">
+                    <span>PROFILE STATUS</span>
+                    <strong id="profileStatus">Complete your profile</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div>
+                    <span>Saved Events</span>
+                    <h3 id="savedEventsCount">0</h3>
+                    <small>Your saved campus events</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div>
+                    <span>My Events</span>
+                    <h3 id="myEventsCount">0</h3>
+                    <small>Events in your list</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div>
+                    <span>Account</span>
+                    <h3 id="accountStatus">Active</h3>
+                    <small>Local demo profile</small>
+                </div>
+            </div>
+        </section>
+
+        <div class="profile-layout">
+
+            <section class="content-card">
+                <div class="card-heading">
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Keep your profile details up to date.</p>
+                    </div>
+                    <i class="fa-solid fa-user-pen heading-icon"></i>
+                </div>
+
+                <form id="profileForm" novalidate>
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName"
+                                   maxlength="100"
+                                   placeholder="Enter your full name" required>
+                            <small class="field-error" id="nameError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email"
+                                   maxlength="150"
+                                   placeholder="you@example.com" required>
+                            <small class="field-error" id="emailError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentId">Student ID</label>
+                            <input type="text" id="studentId"
+                                   maxlength="50"
+                                   placeholder="Enter student ID">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department">
+                                <option value="">Select department</option>
+                                <option>Computer Science</option>
+                                <option>Information Technology</option>
+                                <option>Software Engineering</option>
+                                <option>Business Administration</option>
+                                <option>Engineering</option>
+                                <option>Design & Arts</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="year">Academic Year</label>
+                            <select id="year">
+                                <option value="">Select academic year</option>
+                                <option>First Year</option>
+                                <option>Second Year</option>
+                                <option>Third Year</option>
+                                <option>Fourth Year</option>
+                                <option>Graduate Student</option>
+                                <option>Faculty / Staff</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone"
+                                   maxlength="30"
+                                   placeholder="Enter phone number">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="bio">About Me</label>
+                            <textarea id="bio" rows="4"
+                                      maxlength="500"
+                                      placeholder="Tell the campus community a little about yourself..."></textarea>
+                            <div class="character-count" id="bioCount">
+                                0 / 500
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-message" id="formMessage"
+                         role="status" aria-live="polite"></div>
+
+                    <div class="form-actions">
+                        <button type="button" class="secondary-button"
+                                id="cancelButton">
+                            Cancel
+                        </button>
+
+                        <button type="submit" class="primary-button">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <aside class="right-column">
+
+                <section class="content-card">
+                    <div class="card-heading">
+                        <div>
+                            <h2>Profile Overview</h2>
+                            <p>Your information at a glance.</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-list">
+                        <div class="overview-item">
+                            <div class="overview-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span>Email Address</span>
+                                <strong id="overviewEmail">Not provided</strong>
+                            </div>
+                        </div>
+
+                        <div class="overview-item">
+                            <div class="overview-icon">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <span>Department</span>
+                                <strong id="overviewDepartment">Not set</strong>
+                            </div>
+                        </div>
+
+                        <div class="overview-item">
+                            <div class="overview-icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <span>Academic Year</span>
+                                <strong id="overviewYear">Not set</strong>
+                            </div>
+                        </div>
+
+                        <div class="overview-item">
+                            <div class="overview-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span>Phone Number</span>
+                                <strong id="overviewPhone">Not provided</strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="completion-card">
+                    <div class="completion-heading">
+                        <h3>Profile Completion</h3>
+                        <span id="completionPercentage">0%</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-bar" id="completionBar"></div>
+                    </div>
+
+                    <p id="completionText">
+                        Add your details to complete your profile.
+                    </p>
+                </section>
+
+                <section class="content-card quick-links-card">
+                    <div class="card-heading">
+                        <div>
+                            <h2>Quick Links</h2>
+                            <p>Continue exploring TechSpace.</p>
+                        </div>
+                    </div>
+
+                    <a href="my-events.html" class="quick-link">
+                        <span class="quick-link-icon blue">
+                            <i class="fa-solid fa-bookmark"></i>
+                        </span>
+                        <span>My Events</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+
+                    <a href="calendar.html" class="quick-link">
+                        <span class="quick-link-icon purple">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </span>
+                        <span>Campus Calendar</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+
+                    <a href="settings.html" class="quick-link">
+                        <span class="quick-link-icon green">
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
+                        <span>Account Settings</span>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+                </section>
+
+            </aside>
+        </div>
+
+        <footer class="page-footer">
+            <p>© 2026 TechSpace Campus Calendar. All rights reserved.</p>
+            <span>Discover. Participate. Connect.</span>
+        </footer>
+
+    </main>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="Scripts/profile.js"></script>
+</body>
+</html>
