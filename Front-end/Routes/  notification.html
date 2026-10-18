@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | TechSpace Campus</title>
+    <link rel="stylesheet" href="css/notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="TechSpace Logo">
+            <span>TechSpace</span>
+        </div>
+
+        <div class="campus-name">CAMPUS PORTAL</div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="events.html"><i class="fas fa-calendar-check"></i> Events</a>
+            <a href="my-events.html"><i class="fas fa-bookmark"></i> My Events</a>
+            <a href="notifications.html" class="active">
+                <i class="fas fa-bell"></i> Notifications
+                <span class="nav-badge" id="sidebarBadge">3</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="help.html"><i class="fas fa-question-circle"></i> Help Center</a>
+            <a href="login.html" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Notifications</h1>
+                <p>Stay updated with the latest campus announcements.</p>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="profile">
+                    <div class="avatar">S</div>
+                    <div>
+                        <strong id="userName">Student</strong>
+                        <small>Student Account</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="notification-summary">
+            <div class="summary-card">
+                <div class="summary-icon blue">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div>
+                    <p>Total Notifications</p>
+                    <h2 id="totalCount">0</h2>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon orange">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                    <p>Unread Notifications</p>
+                    <h2 id="unreadCount">0</h2>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon green">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                    <p>Read Notifications</p>
+                    <h2 id="readCount">0</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="notifications-panel">
+
+            <div class="panel-header">
+                <div>
+                    <h2>All Notifications</h2>
+                    <p>Manage your campus updates and reminders.</p>
+                </div>
+
+                <button class="btn btn-light" id="markAllRead">
+                    <i class="fas fa-check-double"></i>
+                    Mark All as Read
+                </button>
+            </div>
+
+            <div class="notification-toolbar">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-tab" data-filter="unread">
+                        Unread
+                    </button>
+                    <button class="filter-tab" data-filter="read">
+                        Read
+                    </button>
+                </div>
+
+                <div class="toolbar-actions">
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="event">Events</option>
+                        <option value="announcement">Announcements</option>
+                        <option value="reminder">Reminders</option>
+                        <option value="system">System</option>
+                    </select>
+
+                    <button class="icon-btn" id="clearRead" title="Clear read notifications">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="notificationList" class="notification-list"></div>
+
+            <div class="empty-state hidden" id="emptyState">
+                <i class="far fa-bell-slash"></i>
+                <h3>No notifications found</h3>
+                <p>You are all caught up. Check back later for new updates.</p>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/notifications.js"></script>
+</body>
+</html>
