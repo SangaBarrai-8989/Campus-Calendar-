@@ -1,0 +1,875 @@
+/* ===================================
+   Campus Calendar - Login Page
+   =================================== */
+
+:root {
+    --primary: #0788e8;
+    --primary-hover: #006fc8;
+
+    --navy: #17266f;
+    --light-blue: #58abe9;
+
+    --page-background: #f0f7fc;
+    --white: #ffffff;
+
+    --text-primary: #111111;
+    --text-secondary: #777777;
+
+    --border: #c9cdd1;
+    --error: #dc3545;
+    --success: #16834a;
+
+    --shadow: 0 2px 8px rgba(20, 45, 75, 0.05);
+}
+
+
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--text-primary);
+
+    background: var(--page-background);
+}
+
+
+/* ===================================
+   Header
+   =================================== */
+
+.header {
+    width: 100%;
+    min-height: 112px;
+
+    padding: 12px 4.5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: var(--white);
+
+    border-bottom: 1px solid #e6edf2;
+}
+
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+}
+
+
+.brand-logo {
+    display: block;
+
+    width: 300px;
+    max-width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* Fallback Logo */
+
+.fallback-logo {
+    display: none;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--navy);
+}
+
+
+.logo-icon {
+    font-size: 40px;
+    font-weight: 800;
+
+    letter-spacing: -5px;
+
+    color: var(--primary);
+}
+
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 25px;
+    line-height: 1.05;
+}
+
+
+.logo-text strong:last-child {
+    color: var(--light-blue);
+}
+
+
+/* Header Button */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+
+.create-account-button {
+    min-height: 54px;
+
+    padding: 0 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.create-account-button:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* ===================================
+   Main
+   =================================== */
+
+.main-container {
+    flex: 1;
+
+    width: 100%;
+
+    padding: 26px 20px 55px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+.login-card {
+    width: 100%;
+    max-width: 910px;
+
+    padding: 30px 64px 42px;
+
+    background: var(--white);
+
+    border: 1px solid #d7dfe5;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* ===================================
+   Heading
+   =================================== */
+
+.login-heading {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+.login-heading h1 {
+    margin-bottom: 12px;
+
+    color: #080808;
+
+    font-size: 44px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.login-heading p {
+    color: #414141;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+}
+
+
+/* ===================================
+   Form
+   =================================== */
+
+#loginForm {
+    width: 100%;
+}
+
+
+.form-group {
+    margin-bottom: 27px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+.input-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-wrapper input {
+    width: 100%;
+    height: 64px;
+
+    padding: 0 18px;
+
+    border: 1.5px solid #aeb3b8;
+
+    border-radius: 7px;
+
+    background: var(--white);
+
+    color: #222222;
+
+    font-family: inherit;
+
+    font-size: 20px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+    color: #999999;
+
+    opacity: 1;
+}
+
+
+.input-wrapper input:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(7, 136, 232, 0.12);
+}
+
+
+.input-wrapper input.invalid {
+    border-color: var(--error);
+}
+
+
+/* Password Toggle */
+
+.password-toggle {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 6px;
+
+    color: #777777;
+
+    cursor: pointer;
+}
+
+
+.password-toggle:hover {
+    color: var(--primary);
+
+    background: #f2f8fd;
+}
+
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+
+    outline-offset: 2px;
+}
+
+
+.password-toggle svg {
+    width: 26px;
+    height: 26px;
+}
+
+
+.input-wrapper:has(.password-toggle) input {
+    padding-right: 65px;
+}
+
+
+/* ===================================
+   Form Options
+   =================================== */
+
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: -3px;
+    margin-bottom: 30px;
+}
+
+
+.remember-option {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+
+.remember-option input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+
+.custom-checkbox {
+    width: 29px;
+    height: 29px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #aeb3b8;
+
+    border-radius: 3px;
+
+    background: var(--white);
+
+    flex-shrink: 0;
+}
+
+
+.remember-option input:checked + .custom-checkbox {
+    background: var(--primary);
+
+    border-color: var(--primary);
+}
+
+
+.remember-option input:checked + .custom-checkbox::after {
+    content: "";
+
+    width: 7px;
+    height: 13px;
+
+    border-right: 3px solid var(--white);
+    border-bottom: 3px solid var(--white);
+
+    transform: rotate(45deg);
+
+    margin-top: -3px;
+}
+
+
+.remember-option input:focus-visible + .custom-checkbox {
+    outline: 3px solid rgba(7, 136, 232, 0.3);
+
+    outline-offset: 3px;
+}
+
+
+.forgot-password-link {
+    color: #0876b9;
+
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.forgot-password-link:hover {
+    color: var(--primary-hover);
+
+    text-decoration: underline;
+}
+
+
+/* ===================================
+   Error Messages
+   =================================== */
+
+.error-message {
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--error);
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+.error-message:empty {
+    display: none;
+}
+
+
+.form-message {
+    display: none;
+
+    margin-bottom: 16px;
+
+    padding: 12px 14px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+.form-message.error {
+    display: block;
+
+    color: #a8202e;
+
+    background: #fff0f1;
+
+    border: 1px solid #f3c5ca;
+}
+
+
+.form-message.success {
+    display: block;
+
+    color: #146c3b;
+
+    background: #eaf8ef;
+
+    border: 1px solid #bce7ca;
+}
+
+
+/* ===================================
+   Submit Button
+   =================================== */
+
+.submit-button {
+    width: 100%;
+    min-height: 59px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--light-blue);
+
+    color: var(--white);
+
+    font-family: inherit;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.submit-button:hover {
+    background: var(--primary);
+
+    transform: translateY(-1px);
+}
+
+
+.submit-button:focus-visible {
+    outline: 3px solid rgba(7, 136, 232, 0.35);
+
+    outline-offset: 3px;
+}
+
+
+.submit-button:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ===================================
+   Footer
+   =================================== */
+
+.login-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 38px;
+
+    text-align: center;
+
+    font-size: 20px;
+}
+
+
+.login-footer span {
+    color: #888888;
+}
+
+
+.login-footer a {
+    color: #0876b9;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.login-footer a:hover {
+    color: var(--primary-hover);
+
+    text-decoration: underline;
+}
+
+
+/* ===================================
+   Tablet
+   =================================== */
+
+@media (max-width: 900px) {
+
+    .header {
+        min-height: 90px;
+
+        padding: 12px 24px;
+    }
+
+
+    .brand-logo {
+        width: 230px;
+    }
+
+
+    .create-account-button {
+        min-height: 46px;
+
+        padding: 0 18px;
+
+        font-size: 16px;
+    }
+
+
+    .login-card {
+        max-width: 760px;
+
+        padding: 30px 45px 36px;
+    }
+
+
+    .login-heading h1 {
+        font-size: 38px;
+    }
+
+
+    .form-group label {
+        font-size: 22px;
+    }
+
+
+    .input-wrapper input {
+        height: 56px;
+    }
+
+
+    .remember-option {
+        font-size: 18px;
+    }
+
+
+    .forgot-password-link {
+        font-size: 17px;
+    }
+
+}
+
+
+/* ===================================
+   Mobile
+   =================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        min-height: 76px;
+
+        padding: 12px 16px;
+
+        gap: 10px;
+    }
+
+
+    .brand-logo {
+        width: 145px;
+    }
+
+
+    .create-account-button {
+        min-height: 38px;
+
+        padding: 0 11px;
+
+        border-radius: 6px;
+
+        font-size: 12px;
+    }
+
+
+    .main-container {
+        padding: 20px 12px 30px;
+    }
+
+
+    .login-card {
+        max-width: 100%;
+
+        padding: 27px 20px 28px;
+    }
+
+
+    .login-heading {
+        margin-bottom: 28px;
+    }
+
+
+    .login-heading h1 {
+        font-size: 30px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .login-heading p {
+        font-size: 15px;
+    }
+
+
+    .form-group {
+        margin-bottom: 23px;
+    }
+
+
+    .form-group label {
+        margin-bottom: 9px;
+
+        font-size: 18px;
+    }
+
+
+    .input-wrapper input {
+        height: 48px;
+
+        padding: 0 13px;
+
+        font-size: 16px;
+    }
+
+
+    .input-wrapper:has(.password-toggle) input {
+        padding-right: 52px;
+    }
+
+
+    .password-toggle {
+        right: 6px;
+
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .password-toggle svg {
+        width: 22px;
+        height: 22px;
+    }
+
+
+    .form-options {
+        align-items: flex-start;
+
+        gap: 15px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .remember-option {
+        gap: 9px;
+
+        font-size: 15px;
+    }
+
+
+    .custom-checkbox {
+        width: 23px;
+        height: 23px;
+    }
+
+
+    .forgot-password-link {
+        font-size: 14px;
+    }
+
+
+    .submit-button {
+        min-height: 49px;
+
+        font-size: 18px;
+    }
+
+
+    .login-footer {
+        gap: 8px;
+
+        margin-top: 26px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* ===================================
+   Small Mobile
+   =================================== */
+
+@media (max-width: 360px) {
+
+    .header {
+        padding: 10px;
+    }
+
+
+    .brand-logo {
+        width: 112px;
+    }
+
+
+    .create-account-button {
+        padding: 0 8px;
+
+        font-size: 11px;
+    }
+
+
+    .login-card {
+        padding: 24px 15px;
+    }
+
+
+    .login-heading h1 {
+        font-size: 27px;
+    }
+
+
+    .form-options {
+        flex-direction: column;
+    }
+
+}
