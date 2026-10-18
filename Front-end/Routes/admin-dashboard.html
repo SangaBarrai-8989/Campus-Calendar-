@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | TechSpace Campus</title>
+
+    <link rel="stylesheet" href="Styles/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <img src="assets/logo.png" alt="TechSpace Logo"
+                 onerror="this.style.display='none'">
+            <div>
+                <h2>TechSpace</h2>
+                <span>Campus Admin</span>
+            </div>
+        </div>
+
+        <div class="admin-info">
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+            <div>
+                <h3>Administrator</h3>
+                <p>System Manager</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">MAIN MENU</p>
+
+            <a href="admin-dashboard.html" class="nav-link active">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="events.html" class="nav-link">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>All Events</span>
+            </a>
+
+            <a href="create-event.html" class="nav-link">
+                <i class="fa-solid fa-circle-plus"></i>
+                <span>Create Event</span>
+            </a>
+
+            <a href="calendar.html" class="nav-link">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Campus Calendar</span>
+            </a>
+
+            <a href="notifications.html" class="nav-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+            </a>
+
+            <p class="nav-label">ACCOUNT</p>
+
+            <a href="profile.html" class="nav-link">
+                <i class="fa-solid fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="help.html" class="nav-link">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Help & Support</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="login.html" class="logout-link" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p>Manage your campus events and activities.</p>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="current-date" id="currentDate"></div>
+
+                <a href="notifications.html" class="notification-btn" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </a>
+
+                <a href="profile.html" class="topbar-avatar" aria-label="My profile">
+                    <i class="fa-solid fa-user-shield"></i>
+                </a>
+            </div>
+
+        </header>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <div>
+                <span class="banner-label">ADMINISTRATION PANEL</span>
+                <h2>Welcome, Administrator!</h2>
+                <p>Here is an overview of your campus event activity.</p>
+            </div>
+
+            <a href="create-event.html" class="banner-btn">
+                <i class="fa-solid fa-plus"></i>
+                Create New Event
+            </a>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats-grid">
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <span class="stat-tag">Events</span>
+                </div>
+                <h3 id="totalEvents">0</h3>
+                <p>Total Campus Events</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <span class="stat-tag">Upcoming</span>
+                </div>
+                <h3 id="upcomingEvents">0</h3>
+                <p>Upcoming Events</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-bookmark"></i>
+                    </div>
+                    <span class="stat-tag">Saved</span>
+                </div>
+                <h3 id="savedEvents">0</h3>
+                <p>Saved Event Records</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <span class="stat-tag">Today</span>
+                </div>
+                <h3 id="todayEvents">0</h3>
+                <p>Events Today</p>
+            </article>
+
+        </section>
+
+        <!-- Events Section -->
+        <section class="content-card">
+
+            <div class="section-header">
+                <div>
+                    <h2>Campus Events</h2>
+                    <p>Review events saved in this browser.</p>
+                </div>
+
+                <a href="events.html" class="view-all">
+                    View All <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="eventsTableBody">
+                        <tr>
+                            <td colspan="4" class="empty-state">
+                                <i class="fa-regular fa-calendar-xmark"></i>
+                                <p>No events found.</p>
+                                <a href="create-event.html">Create your first event</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-section">
+            <div class="section-heading">
+                <h2>Quick Actions</h2>
+                <p>Common administration tasks</p>
+            </div>
+
+            <div class="quick-grid">
+
+                <a href="create-event.html" class="quick-card">
+                    <div class="quick-icon blue">
+                        <i class="fa-solid fa-calendar-plus"></i>
+                    </div>
+                    <div>
+                        <h3>Create Event</h3>
+                        <p>Add a new campus event.</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-arrow"></i>
+                </a>
+
+                <a href="events.html" class="quick-card">
+                    <div class="quick-icon green">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h3>Manage Events</h3>
+                        <p>Browse campus activities.</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-arrow"></i>
+                </a>
+
+                <a href="calendar.html" class="quick-card">
+                    <div class="quick-icon purple">
+                        <i class="fa-solid fa-calendar-week"></i>
+                    </div>
+                    <div>
+                        <h3>View Calendar</h3>
+                        <p>Check event schedules.</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-arrow"></i>
+                </a>
+
+                <a href="settings.html" class="quick-card">
+                    <div class="quick-icon orange">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <div>
+                        <h3>Settings</h3>
+                        <p>Manage your preferences.</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-right quick-arrow"></i>
+                </a>
+
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 TechSpace Campus. All rights reserved.</p>
+            <span>Admin Dashboard</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="Scripts/admin-dashboard.js"></script>
+</body>
+</html>
