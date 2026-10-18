@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | TechSpace Campus Calendar</title>
+
+    <link rel="stylesheet" href="Styles/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="assets/logo.png" alt="TechSpace Logo">
+            <div>
+                <h2>TechSpace</h2>
+                <p>Campus Calendar</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-title">MENU</p>
+
+            <a href="dashboard.html" class="nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="calendar.html" class="nav-link">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Calendar</span>
+            </a>
+
+            <a href="events.html" class="nav-link">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Events</span>
+            </a>
+
+            <a href="my-events.html" class="nav-link">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>My Events</span>
+            </a>
+
+            <a href="notifications.html" class="nav-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+            </a>
+
+            <p class="nav-title">PREFERENCES</p>
+
+            <a href="settings.html" class="nav-link active">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="help.html" class="nav-link">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Help & Support</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help">
+                <i class="fa-solid fa-headset"></i>
+                <p>Need help?</p>
+                <a href="help.html">Contact Support</a>
+            </div>
+
+            <a href="login.html" class="logout-link" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="page-heading">
+                <h1>Settings</h1>
+                <p>Manage your account and preferences</p>
+            </div>
+
+            <div class="topbar-actions">
+                <a href="notifications.html" class="icon-button" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                </a>
+
+                <div class="profile">
+                    <div class="profile-avatar" id="profileAvatar">S</div>
+                    <div class="profile-info">
+                        <strong id="profileName">Student</strong>
+                        <span>Student Account</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Settings Navigation -->
+        <div class="settings-layout">
+
+            <aside class="settings-nav">
+                <h3>Settings Menu</h3>
+
+                <button class="settings-tab active" data-section="profile">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile Information</span>
+                </button>
+
+                <button class="settings-tab" data-section="notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>Notifications</span>
+                </button>
+
+                <button class="settings-tab" data-section="appearance">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Appearance</span>
+                </button>
+
+                <button class="settings-tab" data-section="security">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Security</span>
+                </button>
+            </aside>
+
+            <div class="settings-content">
+
+                <!-- Profile Settings -->
+                <section class="settings-section active" id="profile-section">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Profile Information</h2>
+                            <p>Update your personal information.</p>
+                        </div>
+                        <i class="fa-regular fa-user section-icon"></i>
+                    </div>
+
+                    <form id="profileForm">
+                        <div class="profile-picture-area">
+                            <div class="large-avatar" id="largeAvatar">S</div>
+                            <div>
+                                <h3>Your Profile</h3>
+                                <p>Your name will be displayed on your account.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentId">Student ID</label>
+                                <input type="text" id="studentId" placeholder="Enter your student ID">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <input type="text" id="department" placeholder="e.g. Computer Science">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="bio">About Me</label>
+                                <textarea id="bio" rows="4" placeholder="Write a short description about yourself"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Notification Settings -->
+                <section class="settings-section" id="notifications-section">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Notification Preferences</h2>
+                            <p>Choose which notifications you want to receive.</p>
+                        </div>
+                        <i class="fa-regular fa-bell section-icon"></i>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-description">
+                            <h3>Event Reminders</h3>
+                            <p>Receive reminders before your registered events.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="eventReminders" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-description">
+                            <h3>New Campus Events</h3>
+                            <p>Get notified when new events are published.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="newEvents" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-description">
+                            <h3>Event Updates</h3>
+                            <p>Receive updates about changes to event details.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="eventUpdates" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-description">
+                            <h3>Email Notifications</h3>
+                            <p>Receive important notifications through email.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="emailNotifications">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary" id="saveNotifications">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save Preferences
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Appearance Settings -->
+                <section class="settings-section" id="appearance-section">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Appearance</h2>
+                            <p>Customize how your calendar looks.</p>
+                        </div>
+                        <i class="fa-solid fa-palette section-icon"></i>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-description">
+                            <h3>Dark Mode</h3>
+                            <p>Use a darker appearance for the application.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="darkMode">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-description">
+                            <h3>Compact Layout</h3>
+                            <p>Reduce spacing to display more content on the screen.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="compactLayout">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary" id="saveAppearance">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save Appearance
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Security Settings -->
+                <section class="settings-section" id="security-section">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Security</h2>
+                            <p>Manage your password and account security.</p>
+                        </div>
+                        <i class="fa-solid fa-shield-halved section-icon"></i>
+                    </div>
+
+                    <div class="security-notice">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>
+                            Password changes require a connected authentication system.
+                            You can use the password reset page if your account supports it.
+                        </p>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+
+                        <div class="security-card-info">
+                            <h3>Password</h3>
+                            <p>Reset your password if you have forgotten it.</p>
+                        </div>
+
+                        <a href="reset-password.html" class="btn btn-secondary">
+                            Reset Password
+                        </a>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-icon">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </div>
+
+                        <div class="security-card-info">
+                            <h3>Log Out</h3>
+                            <p>Leave your current session on this device.</p>
+                        </div>
+
+                        <button class="btn btn-danger" id="securityLogout">
+                            Log Out
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+        <footer class="page-footer">
+            <p>© 2026 TechSpace Campus Calendar. All rights reserved.</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="Scripts/settings.js"></script>
+</body>
+</html>
