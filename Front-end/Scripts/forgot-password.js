@@ -121,15 +121,6 @@ forgotPasswordForm.addEventListener(
         }
 
 
-        /*
-         * Frontend only.
-         *
-         * No email is sent at this stage.
-         * The password-reset API will be connected
-         * after the frontend pages are completed.
-         */
-
-
         showMessage(
             "The email is valid. Password recovery will be available after backend integration.",
             "success"
