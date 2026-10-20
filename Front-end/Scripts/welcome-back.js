@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const userNameElement = document.getElementById("userName");
 
-    // Read the user's saved profile from localStorage
     try {
         const savedProfile = localStorage.getItem("techSpaceUserProfile");
 
