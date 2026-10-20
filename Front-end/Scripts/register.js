@@ -16,9 +16,6 @@ const submitButton = document.getElementById("submitButton");
 
 const formMessage = document.getElementById("formMessage");
 
-
-// Error message elements
-
 const emailError = document.getElementById("emailError");
 
 const organizationEmailError =
