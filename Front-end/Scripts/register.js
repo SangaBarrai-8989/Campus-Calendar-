@@ -1,8 +1,5 @@
 "use strict";
 
-
-// Get form elements
-
 const registerForm = document.getElementById("registerForm");
 
 const emailInput = document.getElementById("email");
@@ -385,14 +382,6 @@ registerForm.addEventListener("submit", (event) => {
         return;
 
     }
-
-
-    /*
-     * Frontend only:
-     * The form is validated, but no account is created yet.
-     *
-     * Backend authentication will be connected later.
-     */
 
 
     showFormMessage(
