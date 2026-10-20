@@ -1,10 +1,6 @@
 "use strict";
 
 
-// ======================================
-// Elements
-// ======================================
-
 const forgotPasswordForm =
     document.getElementById("forgotPasswordForm");
 
@@ -16,11 +12,6 @@ const emailError =
 
 const formMessage =
     document.getElementById("formMessage");
-
-
-// ======================================
-// Helpers
-// ======================================
 
 function showError(message) {
 
@@ -62,10 +53,6 @@ function clearMessage() {
 }
 
 
-// ======================================
-// Validate Email
-// ======================================
-
 function validateEmail() {
 
     const email = emailInput.value.trim();
@@ -98,11 +85,6 @@ function validateEmail() {
 
 }
 
-
-// ======================================
-// Live Validation
-// ======================================
-
 emailInput.addEventListener("blur", validateEmail);
 
 
@@ -115,11 +97,6 @@ emailInput.addEventListener("input", () => {
     }
 
 });
-
-
-// ======================================
-// Form Submission
-// ======================================
 
 forgotPasswordForm.addEventListener(
     "submit",
