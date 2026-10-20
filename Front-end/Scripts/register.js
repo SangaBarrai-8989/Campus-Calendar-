@@ -1,8 +1,3 @@
-/* =====================================
-   Campus Calendar - Registration
-   Frontend Validation
-   ===================================== */
-
 "use strict";
 
 
@@ -38,10 +33,6 @@ const confirmPasswordError =
     document.getElementById("confirmPasswordError");
 
 
-// =====================================
-// Password Visibility
-// =====================================
-
 const passwordToggleButtons =
     document.querySelectorAll(".password-toggle");
 
@@ -75,11 +66,6 @@ passwordToggleButtons.forEach((button) => {
     });
 
 });
-
-
-// =====================================
-// Helpers
-// =====================================
 
 function showError(input, errorElement, message) {
 
@@ -132,10 +118,6 @@ function clearFormMessage() {
 }
 
 
-// =====================================
-// Email Validation
-// =====================================
-
 function isValidEmail(value) {
 
     const emailPattern =
@@ -182,11 +164,6 @@ function validateEmail() {
 
 }
 
-
-// =====================================
-// Organization Email Validation
-// =====================================
-
 function validateOrganizationEmail() {
 
     const organizationEmail =
@@ -228,11 +205,6 @@ function validateOrganizationEmail() {
 
 }
 
-
-// =====================================
-// Password Validation
-// =====================================
-
 function validatePassword() {
 
     const password = passwordInput.value;
@@ -269,11 +241,6 @@ function validatePassword() {
     return true;
 
 }
-
-
-// =====================================
-// Confirm Password Validation
-// =====================================
 
 function validateConfirmPassword() {
 
@@ -316,11 +283,6 @@ function validateConfirmPassword() {
     return true;
 
 }
-
-
-// =====================================
-// Live Validation
-// =====================================
 
 emailInput.addEventListener("blur", validateEmail);
 
@@ -378,11 +340,6 @@ confirmPasswordInput.addEventListener("input", () => {
     }
 
 });
-
-
-// =====================================
-// Form Submission
-// =====================================
 
 registerForm.addEventListener("submit", (event) => {
 
