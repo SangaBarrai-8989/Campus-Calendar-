@@ -1,10 +1,5 @@
 "use strict";
 
-
-// ===================================
-// Elements
-// ===================================
-
 const loginForm = document.getElementById("loginForm");
 
 const emailInput = document.getElementById("email");
@@ -20,11 +15,6 @@ const passwordError = document.getElementById("passwordError");
 const formMessage = document.getElementById("formMessage");
 
 const submitButton = document.getElementById("submitButton");
-
-
-// ===================================
-// Password Visibility
-// ===================================
 
 document.querySelectorAll(".password-toggle").forEach((button) => {
 
@@ -53,11 +43,6 @@ document.querySelectorAll(".password-toggle").forEach((button) => {
     });
 
 });
-
-
-// ===================================
-// Helpers
-// ===================================
 
 function showError(input, errorElement, message) {
 
@@ -105,11 +90,6 @@ function isValidEmail(email) {
 
 }
 
-
-// ===================================
-// Validate Email
-// ===================================
-
 function validateEmail() {
 
     const email = emailInput.value.trim();
@@ -146,11 +126,6 @@ function validateEmail() {
 
 }
 
-
-// ===================================
-// Validate Password
-// ===================================
-
 function validatePassword() {
 
     const password = passwordInput.value;
@@ -174,11 +149,6 @@ function validatePassword() {
 
 }
 
-
-// ===================================
-// Live Validation
-// ===================================
-
 emailInput.addEventListener("blur", validateEmail);
 
 passwordInput.addEventListener("blur", validatePassword);
@@ -200,11 +170,6 @@ passwordInput.addEventListener("input", () => {
     }
 
 });
-
-
-// ===================================
-// Submit Form
-// ===================================
 
 loginForm.addEventListener("submit", (event) => {
 
