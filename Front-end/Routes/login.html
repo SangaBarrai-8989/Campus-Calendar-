@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Sign in to your Campus Calendar account."
+    >
+
+    <title>Sign In | Campus Calendar</title>
+
+    <link rel="stylesheet" href="../Styles/login.css">
+    <link rel="stylesheet" href="../Styles/brand-system.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <a href="register.html" class="brand">
+
+            <img
+                src="../assets/logo.png"
+                alt="Campus Calendar"
+                class="brand-logo"
+                onerror="this.style.display='none'; document.getElementById('fallbackLogo').style.display='flex';"
+            >
+
+            <div class="fallback-logo" id="fallbackLogo">
+
+                <span class="logo-icon">CC</span>
+
+                <span class="logo-text">
+                    <strong>Campus</strong>
+                    <strong>Calendar</strong>
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="header-actions">
+
+            <a href="register.html" class="create-account-button">
+                Create account
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="main-container">
+
+        <section class="login-card">
+
+            <!-- Heading -->
+            <div class="login-heading">
+
+                <h1>Welcome Back</h1>
+
+                <p>
+                    Sign in to your campus calendar account
+                </p>
+
+            </div>
+
+
+            <!-- Login Form -->
+            <form id="loginForm" novalidate>
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="sanga@learn.org"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                    <small
+                        class="error-message"
+                        id="emailError"
+                    ></small>
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="password"
+                            aria-label="Show password"
+                            aria-pressed="false"
+                        >
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                                />
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <small
+                        class="error-message"
+                        id="passwordError"
+                    ></small>
+
+                </div>
+
+
+                <!-- Remember Me and Forgot Password -->
+                <div class="form-options">
+
+                    <label class="remember-option">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                            name="rememberMe"
+                        >
+
+                        <span class="custom-checkbox"></span>
+
+                        <span>Remember me</span>
+
+                    </label>
+
+
+                    <a
+                        href="forgot-password.html"
+                        class="forgot-password-link"
+                    >
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <!-- Message -->
+                <div
+                    id="formMessage"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+                    Sign in
+                </button>
+
+            </form>
+
+
+            <!-- Footer -->
+            <div class="login-footer">
+
+                <span>Don't have an account?</span>
+
+                <a href="register.html">
+                    Create account
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../Scripts/login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Events | TechSpace</title>
+    <link rel="stylesheet" href="../Styles/events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/brand-system.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-container">
+            <img src="../assets/logo.png" alt="Campus Calendar — Learnistan Techspace" class="logo">
+            <span>Campus Calendar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="calendar.html" class="nav-link">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Campus Calendar</span>
+            </a>
+            <a href="events.html" class="nav-link active">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>All Events</span>
+            </a>
+            <a href="my-events.html" class="nav-link">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>My Events</span>
+            </a>
+            <a href="notification.html" class="nav-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+            </a>
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+            <a href="help.html" class="nav-link">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Help & Support</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="login.html" class="nav-link logout-link">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>Pages</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>All Events</strong>
+            </div>
+
+            <div class="topbar-actions">
+                <button class="icon-button" onclick="location.href='notification.html'" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile">
+                    <div class="profile-avatar">S</div>
+                    <div class="profile-info">
+                        <strong>Student</strong>
+                        <span>Campus Member</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="page-content">
+
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">DISCOVER CAMPUS LIFE</p>
+                    <h1>All Events</h1>
+                    <p class="page-description">
+                        Discover workshops, academic activities, sports, and campus events.
+                    </p>
+                </div>
+
+                <a href="create-event.html" class="primary-button">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Event
+                </a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <div>
+                        <p>Total Events</p>
+                        <h3 id="totalEvents">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div>
+                        <p>Upcoming Events</p>
+                        <h3 id="upcomingCount">0</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-bookmark"></i>
+                    </div>
+                    <div>
+                        <p>Saved Events</p>
+                        <h3 id="savedCount">0</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="events-toolbar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" id="eventSearch" placeholder="Search events by name or location...">
+                </div>
+
+                <div class="filter-controls">
+                    <select id="categoryFilter" aria-label="Filter by category">
+                        <option value="all">All Categories</option>
+                        <option value="academic">Academic</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="social">Social</option>
+                        <option value="sports">Sports</option>
+                        <option value="career">Career</option>
+                    </select>
+
+                    <select id="dateFilter" aria-label="Filter by date">
+                        <option value="all">Any Date</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="today">Today</option>
+                        <option value="week">Next 7 Days</option>
+                        <option value="past">Past Events</option>
+                    </select>
+
+                    <select id="sortFilter" aria-label="Sort events">
+                        <option value="date-asc">Date: Earliest</option>
+                        <option value="date-desc">Date: Latest</option>
+                        <option value="title">Name: A–Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Explore Events</h2>
+                    <p id="resultsCount">Showing all events</p>
+                </div>
+
+                <div class="view-switcher">
+                    <button class="view-button active" id="gridViewButton" aria-label="Grid view">
+                        <i class="fa-solid fa-grip"></i>
+                    </button>
+                    <button class="view-button" id="listViewButton" aria-label="List view">
+                        <i class="fa-solid fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="category-tabs" id="categoryTabs">
+                <button class="category-tab active" data-category="all">All Events</button>
+                <button class="category-tab" data-category="academic">Academic</button>
+                <button class="category-tab" data-category="workshop">Workshops</button>
+                <button class="category-tab" data-category="social">Social</button>
+                <button class="category-tab" data-category="sports">Sports</button>
+                <button class="category-tab" data-category="career">Career</button>
+            </div>
+
+            <div class="events-grid" id="eventsContainer"></div>
+
+            <div class="empty-state" id="emptyState" hidden>
+                <div class="empty-icon">
+                    <i class="fa-regular fa-calendar-xmark"></i>
+                </div>
+                <h3>No events found</h3>
+                <p>Try changing your search or filters to find more events.</p>
+                <button class="secondary-button" id="resetFilters">Clear Filters</button>
+            </div>
+
+            <div class="pagination" id="pagination"></div>
+
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2026 Learnistan Techspace. All rights reserved.</p>
+            <div>
+                <a href="help.html">Help</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </footer>
+
+    </main>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="event-modal" id="eventModal" aria-hidden="true">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-category" id="modalCategory"></div>
+        <h2 id="modalTitle"></h2>
+        <p class="modal-description" id="modalDescription"></p>
+
+        <div class="modal-details">
+            <div>
+                <i class="fa-regular fa-calendar"></i>
+                <span id="modalDate"></span>
+            </div>
+            <div>
+                <i class="fa-regular fa-clock"></i>
+                <span id="modalTime"></span>
+            </div>
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="modalLocation"></span>
+            </div>
+            <div>
+                <i class="fa-regular fa-user"></i>
+                <span id="modalOrganizer"></span>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="secondary-button" id="modalSaveButton">
+                <i class="fa-regular fa-bookmark"></i>
+                Save Event
+            </button>
+            <button class="primary-button" id="modalCloseButton">Close</button>
+        </div>
+    </div>
+</div>
+
+<script src="../Scripts/events.js"></script>
+</body>
+</html>

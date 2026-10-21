@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Calendar | Learnistan Techspace</title>
+    <link rel="stylesheet" href="../Styles/calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/brand-system.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-container">
+            <img src="../assets/logo.png" alt="Campus Calendar — Learnistan Techspace" class="logo">
+            <span>Campus Calendar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="calendar.html" class="nav-link active">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Campus Calendar</span>
+            </a>
+
+            <a href="events.html" class="nav-link">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>All Events</span>
+            </a>
+
+            <a href="my-events.html" class="nav-link">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>My Events</span>
+            </a>
+
+            <a href="notification.html" class="nav-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="help.html" class="nav-link">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Help & Support</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="login.html" class="nav-link logout-link">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>Pages</span>
+                <i class="fa-solid fa-chevron-right"></i>
+                <strong>Campus Calendar</strong>
+            </div>
+
+            <div class="topbar-actions">
+                <button class="icon-button" aria-label="Notifications"
+                        onclick="window.location.href='notification.html'">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile">
+                    <div class="profile-avatar">S</div>
+                    <div class="profile-info">
+                        <strong>Student</strong>
+                        <span>Campus Member</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="page-content">
+
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">PLAN YOUR CAMPUS LIFE</p>
+                    <h1>Campus Calendar</h1>
+                    <p class="page-description">
+                        Explore upcoming campus events and organize your schedule.
+                    </p>
+                </div>
+
+                <a href="create-event.html" class="primary-button">
+                    <i class="fa-solid fa-plus"></i>
+                    Create Event
+                </a>
+            </div>
+
+            <div class="calendar-toolbar">
+                <div class="calendar-navigation">
+                    <button id="prevMonth" class="calendar-nav-button" aria-label="Previous month">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <h2 id="currentMonth">October 2026</h2>
+
+                    <button id="nextMonth" class="calendar-nav-button" aria-label="Next month">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <button id="todayButton" class="today-button">Today</button>
+                </div>
+
+                <div class="calendar-actions">
+                    <label class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" id="eventSearch" placeholder="Search events...">
+                    </label>
+
+                    <select id="categoryFilter" class="category-filter" aria-label="Filter by category">
+                        <option value="all">All Categories</option>
+                        <option value="academic">Academic</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="social">Social</option>
+                        <option value="sports">Sports</option>
+                        <option value="career">Career</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calendar-layout">
+
+                <section class="calendar-card">
+
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+
+                    <div class="calendar-grid" id="calendarGrid"></div>
+
+                    <div class="calendar-legend">
+                        <span><i class="legend-dot academic-dot"></i> Academic</span>
+                        <span><i class="legend-dot workshop-dot"></i> Workshop</span>
+                        <span><i class="legend-dot social-dot"></i> Social</span>
+                        <span><i class="legend-dot sports-dot"></i> Sports</span>
+                        <span><i class="legend-dot career-dot"></i> Career</span>
+                    </div>
+
+                </section>
+
+                <aside class="events-sidebar">
+
+                    <div class="side-card">
+                        <div class="side-card-heading">
+                            <div>
+                                <h3>Selected Date</h3>
+                                <p id="selectedDateLabel">Select a date</p>
+                            </div>
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+
+                        <div id="selectedDateEvents" class="selected-events">
+                            <div class="empty-state">
+                                <i class="fa-regular fa-calendar"></i>
+                                <p>Select a date to view its events.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="side-card upcoming-card">
+                        <div class="side-card-heading">
+                            <div>
+                                <h3>Upcoming Events</h3>
+                                <p>Don't miss out</p>
+                            </div>
+
+                            <a href="events.html" class="view-all">View all</a>
+                        </div>
+
+                        <div id="upcomingEvents" class="upcoming-events"></div>
+                    </div>
+
+                    <div class="calendar-tip">
+                        <div class="tip-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <div>
+                            <h4>Stay Organized</h4>
+                            <p>Select any date on the calendar to explore scheduled campus activities.</p>
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2026 Learnistan Techspace. All rights reserved.</p>
+            <div>
+                <a href="help.html">Help</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </footer>
+
+    </main>
+
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="event-modal" id="eventModal" aria-hidden="true">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-category" id="modalCategory">EVENT</div>
+        <h2 id="modalTitle">Event Title</h2>
+        <p id="modalDescription"></p>
+
+        <div class="modal-details">
+            <div>
+                <i class="fa-regular fa-calendar"></i>
+                <span id="modalDate"></span>
+            </div>
+            <div>
+                <i class="fa-regular fa-clock"></i>
+                <span id="modalTime"></span>
+            </div>
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="modalLocation"></span>
+            </div>
+            <div>
+                <i class="fa-regular fa-user"></i>
+                <span id="modalOrganizer"></span>
+            </div>
+        </div>
+
+        <button class="primary-button modal-save-button" id="saveEventButton">
+            <i class="fa-regular fa-bookmark"></i>
+            Save Event
+        </button>
+    </div>
+</div>
+
+<script src="../Scripts/calendar.js"></script>
+</body>
+</html>
