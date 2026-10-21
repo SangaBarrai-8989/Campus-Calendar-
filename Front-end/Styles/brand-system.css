@@ -1,0 +1,186 @@
+/* Shared Campus Calendar visual system — Learnistan Techspace */
+:root {
+  --cc-navy: #16065f;
+  --cc-navy-deep: #0b1742;
+  --cc-blue: #1683f8;
+  --cc-blue-hover: #096bd8;
+  --cc-page: #f3f8ff;
+  --cc-line: #dce8f8;
+  --cc-text: #172554;
+  --cc-muted: #7584a3;
+  --cc-sidebar-width: 258px;
+}
+
+/* Consistent dark navigation across every signed-in page */
+body:has(.sidebar) { background: var(--cc-page); }
+.sidebar {
+  width: var(--cc-sidebar-width) !important;
+  padding: 22px 16px 18px !important;
+  background: var(--cc-navy) !important;
+  color: #fff !important;
+  border-right: 1px solid rgba(255,255,255,.12) !important;
+  box-shadow: 6px 0 22px rgba(13, 23, 66, .08);
+}
+.sidebar .logo-container,
+.sidebar .logo,
+.sidebar .brand {
+  min-height: 72px;
+  height: 72px;
+  width: 100%;
+  margin: 0 0 20px !important;
+  padding: 0 7px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+  color: #fff !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.24) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 0 !important;
+  overflow: hidden;
+}
+.sidebar .logo-container img,
+.sidebar .logo img,
+.sidebar .brand img,
+.sidebar img.logo,
+.sidebar img.brand-logo {
+  display: block !important;
+  width: 178px !important;
+  max-width: 100% !important;
+  height: 54px !important;
+  max-height: 54px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.sidebar .logo-container span,
+.sidebar .logo > span,
+.sidebar .logo > div,
+.sidebar .brand > div { display: none !important; }
+.sidebar .profile { border-color: rgba(255,255,255,.2) !important; }
+.sidebar .profile-info,
+.sidebar .profile-info strong,
+.sidebar .profile-info span { color: #fff !important; }
+.sidebar .profile-info span { opacity: .72; }
+.sidebar .avatar { background: #2587ff !important; color: #fff !important; }
+.sidebar .sidebar-nav { padding-top: 2px !important; }
+.sidebar .nav-link {
+  min-height: 42px;
+  margin: 3px 0 !important;
+  padding: 0 12px !important;
+  gap: 12px !important;
+  border-radius: 6px !important;
+  color: #d8e3ff !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.sidebar .nav-link:hover { background: rgba(255,255,255,.1) !important; color: #fff !important; }
+.sidebar .nav-link.active {
+  background: #2585ed !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.13) !important;
+}
+.sidebar .nav-icon, .sidebar .nav-link i { color: inherit !important; }
+.sidebar .sidebar-bottom { border-color: rgba(255,255,255,.22) !important; }
+.sidebar .logout-link:hover { background: rgba(255,255,255,.1) !important; color: #fff !important; }
+
+/* Main workspace spacing and shared topbar */
+.main-content { margin-left: var(--cc-sidebar-width) !important; min-width: 0; background: var(--cc-page) !important; }
+.topbar {
+  min-height: 64px !important;
+  padding: 0 26px !important;
+  gap: 18px !important;
+  background: #fff !important;
+  border-bottom: 1px solid #e5edf8 !important;
+  box-shadow: 0 2px 8px rgba(20,45,90,.025);
+}
+.page-content, .page-container { padding: 24px 26px !important; }
+.page-heading { margin-bottom: 20px !important; }
+.page-heading h1, .welcome-section h1 { letter-spacing: -.035em; }
+.content-card, .calendar-card, .events-card, .stat-card, .dashboard-card {
+  border-color: var(--cc-line) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 14px rgba(20,45,90,.035) !important;
+}
+.primary-button, .btn-primary, button.primary-button {
+  background: var(--cc-blue) !important;
+  border-color: var(--cc-blue) !important;
+  border-radius: 7px !important;
+}
+.primary-button:hover, .btn-primary:hover { background: var(--cc-blue-hover) !important; }
+input, select, textarea { border-radius: 7px !important; }
+
+/* Authentication screens: same logo scale and placement in every header */
+.header .brand-logo, header .brand-logo, .auth-header .brand-logo,
+.login-header .brand-logo, .register-header .brand-logo {
+  display: block;
+  width: 190px !important;
+  max-width: 42vw !important;
+  height: 58px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.header, .auth-header, .login-header, .register-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  :root { --cc-sidebar-width: 238px; }
+  .topbar { padding: 0 18px !important; }
+  .page-content, .page-container { padding: 18px !important; }
+}
+@media (max-width: 640px) {
+  .sidebar { width: min(280px, 86vw) !important; }
+  .main-content { margin-left: 0 !important; }
+  .topbar { min-height: 60px !important; padding: 0 14px !important; }
+  .sidebar .logo-container img, .sidebar .logo img, .sidebar .brand img,
+  .sidebar img.logo, .sidebar img.brand-logo { width: 168px !important; }
+}
+/* Give the white wordmark a consistent dark backing on light authentication headers. */
+.header .brand-logo, header .brand-logo, .auth-header .brand-logo,
+.login-header .brand-logo, .register-header .brand-logo {
+  background: var(--cc-navy) !important;
+  border-radius: 7px !important;
+  padding: 5px 7px !important;
+}
+
+
+/* Notification page layout fix: the sidebar is already in the flex layout.
+   Prevent the shared margin rule from pushing this page content over twice. */
+body.notification-page .main-content {
+  margin-left: 0 !important;
+  width: auto !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+body.notification-page .notification-summary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+body.notification-page .notification-item {
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  body.notification-page .notification-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  body.notification-page .notification-summary { grid-template-columns: 1fr; }
+  body.notification-page .main-content { margin-left: 0 !important; padding: 16px !important; }
+  body.notification-page .panel-header { align-items: flex-start; flex-direction: column; }
+  body.notification-page .notification-item { flex-wrap: wrap; }
+}
